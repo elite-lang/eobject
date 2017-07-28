@@ -1,0 +1,11 @@
+*.*~
+*.bc
+.fuse*
+*.sublime-*
+.clang_complete
+__pycache__/
+.vscode/
+bin/
+build/
+build-doc/
+
