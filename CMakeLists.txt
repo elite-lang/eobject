@@ -22,10 +22,8 @@ set( CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib )
 
 
 file(GLOB_RECURSE source_files
-        ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/*.c
     )
-list(REMOVE_ITEM  source_files  ${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp)
-
 
 # 生成库目标
 add_library(${PROJECT_NAME} ${source_files})
@@ -40,5 +38,5 @@ if (BUILD_SHARED_LIBS)
 set_target_properties(${PROJECT_NAME} PROPERTIES VERSION ${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH} SOVERSION ${VERSION_MAJOR})
 endif()
 
-add_subdirectory(doc)
+# add_subdirectory(doc)
 add_subdirectory(test)
