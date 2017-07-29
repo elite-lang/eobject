@@ -3,11 +3,12 @@
  * @Author: sxf
  * @Contact: sunxfancy@gmail.com
  * @Last Modified By: sxf
- * @Last Modified Time: Jul 28, 2017 4:52 PM
+ * @Last Modified Time: Jul 29, 2017 2:07 PM
  * @Description: Modify Here, Please 
  */
 
 #include "etype.h"
+#include "eobject.h"
 #include <stdlib.h>
 
 extern void e_type_init() {
@@ -16,11 +17,15 @@ extern void e_type_init() {
 
 extern EType e_type_reg (const char* name, size_t obj_size, size_t class_size, e_object_constructor obj_ctor, e_class_constructor cla_ctor)
 {
-    void* obj = malloc(obj_size);
-    void* cla = malloc(class_size);
+    EObjectClass* cla = (EObjectClass*) malloc(class_size);
+    cla->name = name;
+    cla->size = obj_size;
+    cla->class_size = class_size;
     if (obj_ctor)
-        obj_ctor((struct _EObject*) obj);
-    if (cla_ctor)
-        cla_ctor((struct _EObjectClass*) cla);
+        cla->constructor = obj_ctor;
+    if (cla_ctor) {
+        cla->class_constructor = cla_ctor;
+        cla_ctor(cla);
+    }
     return (EType) cla;
 }
