@@ -1,7 +1,7 @@
 env:
    global:
-     - CONAN_REFERENCE: "zlib/1.2.8"
-     - CONAN_USERNAME: "conan"
+     - CONAN_REFERENCE: "eobject/0.1.0"
+     - CONAN_USERNAME: "sunxfancy"
      - CONAN_LOGIN_USERNAME: "sunxfancy"
      - CONAN_CHANNEL: "ci"
      - CONAN_UPLOAD: "https://api.bintray.com/conan/elite-lang/eobject"
@@ -17,6 +17,7 @@ linux: &linux
 osx: &osx
    os: osx
    language: generic
+   
 matrix:
    include:
       - <<: *linux
