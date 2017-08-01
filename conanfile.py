@@ -11,11 +11,13 @@ class eobjectConan(ConanFile):
     generators = "cmake"
     build_policy = "missing"
     requires = 'gtest/1.8.0@lasote/stable'
-
+    exports = "*"
+    
     def build(self):
+        shared = {"BUILD_SHARED_LIBS": self.options.shared}
         cmake = CMake(self)
-        self.run('cmake ../.. %s' % cmake.command_line)
-        self.run("cmake --build . %s" % cmake.build_config)
+        cmake.configure(defs=shared)
+        cmake.build()
 
     def package(self):
         self.copy("*.h", dst="include", src="include")
