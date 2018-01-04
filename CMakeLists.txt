@@ -10,7 +10,7 @@ conan_basic_setup()
 
 SET(VERSION_MAJOR "0")
 SET(VERSION_MINOR "1")
-SET(VERSION_PATCH "0")
+SET(VERSION_PATCH "1")
 
 SET (CMAKE_BUILD_TYPE Debug) # 默认构建Debug模式
 
