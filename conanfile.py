@@ -2,7 +2,7 @@ from conans import ConanFile, CMake, tools
 
 class eobjectConan(ConanFile):
     name = "eobject"
-    version = "0.1.1"
+    version = "0.1.2"
     license = "MIT"
     url = "https://github.com/elite-lang/eobject"
     settings = "os", "compiler", "build_type", "arch"

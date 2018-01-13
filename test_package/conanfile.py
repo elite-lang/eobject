@@ -7,13 +7,13 @@ username = os.getenv("CONAN_USERNAME", "sunxfancy")
 
 class HelloReuseConan(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
-    requires = "eobject/0.1.1@%s/%s" % (username, channel)
+    requires = "eobject/0.1.2@%s/%s" % (username, channel)
     generators = "cmake"
     build_policy = "missing"
 
     def build(self):
         self.cmake = CMake(self)
-        self.cmake.configure(source_dir=self.conanfile_directory, build_dir="./")
+        self.cmake.configure()
         self.cmake.build()
 
     def test(self):
